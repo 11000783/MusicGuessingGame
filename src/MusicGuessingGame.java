@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 public class MusicGuessingGame {
 
 	public static void main(String[] args) {
-		new MusicGuessingGame().setup();
+ 
 	}
 
 	static final int width = 600;
