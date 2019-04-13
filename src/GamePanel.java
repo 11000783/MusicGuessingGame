@@ -7,6 +7,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.Random;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -26,11 +27,16 @@ public class GamePanel extends JPanel implements MouseListener, KeyListener, Act
 	Color blue = new Color(051, 136, 255);
 	Color purple = new Color(102, 034, 136);
 	Color black = new Color(0,0,0);
+	int randombutton1;
+	int randombutton2;
+	int randombutton3;
+	int randombutton4;
 QuestionManager manager = new QuestionManager();
-JButton button1 = new JButton();
-JButton button2 = new JButton();
-JButton button3 = new JButton();
-JButton button4 = new JButton();
+JButton button1 = new JButton(String.valueOf(randombutton1));
+JButton button2 = new JButton(String.valueOf(randombutton2));
+JButton button3 = new JButton(String.valueOf(randombutton3));
+JButton button4 = new JButton(String.valueOf(randombutton4));
+Random randomButton = new Random();
 	GamePanel() {
 		Timer time = new Timer(15000, this);
 		titleFont = new Font("Playfair Display", Font.PLAIN, 48);
@@ -39,9 +45,19 @@ JButton button4 = new JButton();
 		add(button2);
 		add(button3);
 		add(button4);
-
+		int randomButtons = randomButton.nextInt(4);
+		randomButtons = randombutton1;
+		if (randomButtons != randombutton1) {
+			randombutton2 = randomButtons;
+		}
+		else if (randomButtons != randombutton1 && randombutton2 != randomButtons) {
+			randombutton3 = randomButtons;
 	}
-
+		else if (randomButtons != randombutton1 && randombutton2 != randomButtons && randombutton3 != randomButtons) {
+			randombutton4 = randomButtons;
+	}
+		
+	}
 	void drawMenuState(Graphics g) {
 		g.setColor(pink);
 		g.fillRect(0, 0, 600, 800);
@@ -51,6 +67,7 @@ JButton button4 = new JButton();
 		g.setFont(instFont);
 		g.drawString("Press ENTER to start", 105, 300);
 		g.drawString("Press SPACE for instructions", 60, 400);
+		
 
 	}
 
