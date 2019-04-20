@@ -26,10 +26,9 @@ public class Question {
 				}
 			}
 		}
-		// TODO Auto-generated constructor stub
+
 
 	}
-
+	
 }
 
-//

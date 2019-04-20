@@ -32,13 +32,18 @@ public class GamePanel extends JPanel implements MouseListener, KeyListener, Act
 	int randombutton3;
 	int randombutton4;
 QuestionManager manager = new QuestionManager();
-JButton button1 = new JButton(String.valueOf(randombutton1));
-JButton button2 = new JButton(String.valueOf(randombutton2));
-JButton button3 = new JButton(String.valueOf(randombutton3));
-JButton button4 = new JButton(String.valueOf(randombutton4));
+String[] songs = manager.songs;
+Question[] questions = manager.questions;
+
+JButton button1 = new JButton();
+JButton button2 = new JButton();
+JButton button3 = new JButton();
+JButton button4 = new JButton();
+
 Random randomButton = new Random();
 	GamePanel() {
 		Timer time = new Timer(15000, this);
+		// example questions[1].wrongAns1;
 		titleFont = new Font("Playfair Display", Font.PLAIN, 48);
 		instFont = new Font("Playfair Display", Font.PLAIN, 32);
 		add(button1);

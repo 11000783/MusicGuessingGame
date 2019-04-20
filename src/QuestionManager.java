@@ -1,7 +1,10 @@
 	public class QuestionManager {
 	Question[] questions = new Question[10];
+	String songs[] = { "1", "2", "3", "4", "5", "6" };
+	
 	public QuestionManager() {
-		String songs[] = { "1", "2", "3", "4", "5", "6" };
+		
+		
 		questions[0] = new Question(0);
 		questions[1] = new Question(1);
 		questions[2] = new Question(2);
