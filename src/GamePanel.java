@@ -7,15 +7,13 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 import java.util.Random;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-//Need to make a state for when people get right answer and press enter to go on, and endstate to go off if 
-//timer runs out or wrong answer. Alsp need to put actionlistner into each state for enter. End credits saying the player lost or won
-//Next time I need to make it so when click one button with answer says correct, etc. And make answers and question come up at random 
 public class GamePanel extends JPanel implements MouseListener, KeyListener, ActionListener {
 	Font titleFont;
 	Font instFont;
@@ -32,35 +30,45 @@ public class GamePanel extends JPanel implements MouseListener, KeyListener, Act
 	int randombutton3;
 	int randombutton4;
 QuestionManager manager = new QuestionManager();
+Question question = new Question(4);
 String[] songs = manager.songs;
 Question[] questions = manager.questions;
 
-JButton button1 = new JButton();
-JButton button2 = new JButton();
-JButton button3 = new JButton();
-JButton button4 = new JButton();
+JButton button1 = new JButton(Integer.toString(randombutton1));
+JButton button2 = new JButton(Integer.toString(randombutton2));
+JButton button3 = new JButton(Integer.toString(randombutton3));
+JButton button4 = new JButton(Integer.toString(randombutton4));
 
 Random randomButton = new Random();
 	GamePanel() {
 		Timer time = new Timer(15000, this);
-		// example questions[1].wrongAns1;
-		titleFont = new Font("Playfair Display", Font.PLAIN, 48);
+ArrayList <Integer> Answers = new ArrayList <Integer>();
+Answers.add(question.wrongAns1);
+Answers.add(question.wrongAns2);
+Answers.add(question.wrongAns3);
+Answers.add(question.rightAns);
+// JButton[] Jbutton = new JButton[4];
+	titleFont = new Font("Playfair Display", Font.PLAIN, 48);
 		instFont = new Font("Playfair Display", Font.PLAIN, 32);
 		add(button1);
 		add(button2);
 		add(button3);
 		add(button4);
-		int randomButtons = randomButton.nextInt(4);
-		randomButtons = randombutton1;
-		if (randomButtons != randombutton1) {
-			randombutton2 = randomButtons;
-		}
-		else if (randomButtons != randombutton1 && randombutton2 != randomButtons) {
-			randombutton3 = randomButtons;
-	}
-		else if (randomButtons != randombutton1 && randombutton2 != randomButtons && randombutton3 != randomButtons) {
-			randombutton4 = randomButtons;
-	}
+for (int i = 0; i < 4; i++) {
+	int randomButtons = randomButton.nextInt(Answers.size());
+int answers = Answers.get(randomButtons);
+}
+		//		
+//		randomButtons = randombutton1;
+//		if (randomButtons != randombutton1) {
+//			randombutton2 = randomButtons;
+//		}
+//		else if (randomButtons != randombutton1 && randombutton2 != randomButtons) {
+//			randombutton3 = randomButtons;
+//	}
+//		else if (randomButtons != randombutton1 && randombutton2 != randomButtons && randombutton3 != randomButtons) {
+//			randombutton4 = randomButtons;
+//	}
 		
 	}
 	void drawMenuState(Graphics g) {
