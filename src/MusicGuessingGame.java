@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 public class MusicGuessingGame {
 
 	public static void main(String[] args) {
- 
+ new MusicGuessingGame().setup();
 	}
 
 	static final int width = 600;
@@ -20,7 +20,7 @@ public class MusicGuessingGame {
 	void setup() {
 		GamePanel panel = new GamePanel();
 		frame.add(panel);
-		frame.addKeyListener(panel);
+
 		frame.setVisible(true);
 		frame.getContentPane().setPreferredSize(new Dimension(width, height));
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
