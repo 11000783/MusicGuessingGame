@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -33,12 +34,13 @@ public class GamePanel extends JPanel implements MouseListener, KeyListener, Act
 	Question question = new Question(4);
 	String[] songs = manager.songs;
 	Question[] questions = manager.questions;
-
+JLabel label = new JLabel("What is the song?");
 	JButton button1 = new JButton(Integer.toString(randombutton1));
 	JButton button2 = new JButton(Integer.toString(randombutton2));
 	JButton button3 = new JButton(Integer.toString(randombutton3));
 	JButton button4 = new JButton(Integer.toString(randombutton4));
 	Random randomButton = new Random();
+
 	GamePanel() {
 		Timer time = new Timer(15000, this);
 		ArrayList<Integer> Answers = new ArrayList<Integer>();
@@ -49,17 +51,15 @@ public class GamePanel extends JPanel implements MouseListener, KeyListener, Act
 
 		titleFont = new Font("Playfair Display", Font.PLAIN, 48);
 		instFont = new Font("Playfair Display", Font.PLAIN, 32);
-		add(button1);
-		add(button2);
-		add(button3);
-		add(button4);
+
 		System.out.println("Panel");
-		button1.addKeyListener(this);
+		
+
 		for (int i = 0; i < 4; i++) {
 			int randomButtons = randomButton.nextInt(Answers.size());
 			int answers = Answers.get(randomButtons);
 		}
-		
+
 //		 randomButtons = randombutton1;
 //		 if (randomButtons != randombutton1) {
 //		 randombutton2 = randomButtons;
@@ -75,6 +75,8 @@ public class GamePanel extends JPanel implements MouseListener, KeyListener, Act
 	}
 
 	void drawMenuState(Graphics g) {
+	
+		System.out.println("menu");
 		g.setColor(pink);
 		g.fillRect(0, 0, 600, 800);
 		g.setColor(blue);
@@ -83,16 +85,15 @@ public class GamePanel extends JPanel implements MouseListener, KeyListener, Act
 		g.setFont(instFont);
 		g.drawString("Press ENTER to start", 105, 300);
 		g.drawString("Press SPACE for instructions", 60, 400);
-System.out.println("Menue");
 	}
 
-	void drawGameState(Graphics g) {
-		g.setColor(purple);
-		g.fillRect(0, 0, 600, 800);
-		g.setFont(instFont);
-		g.drawString("What is the song?", 34, 200);
+	void drawGameState() {
+		System.out.println("game");
+		
+		
 
 	}
+
 
 	void drawEndState(Graphics g) {
 		g.setColor(black);
@@ -106,12 +107,13 @@ System.out.println("Menue");
 
 		} else if (currentState == GAME_STATE) {
 
-			drawGameState(g);
+			drawGameState();
 
 		} else if (currentState == END_STATE) {
 
 			drawEndState(g);
 		}
+
 	}
 
 	@Override
@@ -153,10 +155,27 @@ System.out.println("Menue");
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
-			
-			if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+		System.out.println("key");
+		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 
 			currentState++;
+			if (currentState > END_STATE) {
+				currentState = MENU_STATE;
+				
+			}
+			else if (currentState == GAME_STATE) {
+				//setBackground(purple);
+				label.setFont(instFont);
+				add(label);
+				add(button1);
+				add(button2);
+				add(button3);
+				add(button4);
+				button1.addMouseListener(this);
+				button2.addMouseListener(this);
+				button3.addMouseListener(this);
+				button4.addMouseListener(this);
+			}
 			repaint();
 		}
 	}
@@ -172,5 +191,4 @@ System.out.println("Menue");
 		// TODO Auto-generated method stub
 		// This is when timer runs out
 	}
-
 }
