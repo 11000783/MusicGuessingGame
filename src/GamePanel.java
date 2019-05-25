@@ -11,9 +11,14 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
+
+import snoose.EndScreen;
+import snoose.GameScreen;
+import snoose.MenuScreen;
 
 public class GamePanel extends JPanel implements MouseListener, KeyListener, ActionListener {
 	Font titleFont;
@@ -59,7 +64,18 @@ JLabel label = new JLabel("What is the song?");
 			int randomButtons = randomButton.nextInt(Answers.size());
 			int answers = Answers.get(randomButtons);
 		}
-
+	    private void startGame() {
+	        frame = new JFrame( "Snoose" );
+	        frame.setVisible( true );
+	        frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+	        frame.addKeyListener( this );
+	        
+	        menu = new MenuScreen( frame );
+	        game = new GameScreen( frame );
+	        end  = new EndScreen( frame );
+	        
+	        menu.drawMenu();
+	    }
 //		 randomButtons = randombutton1;
 //		 if (randomButtons != randombutton1) {
 //		 randombutton2 = randomButtons;
@@ -74,30 +90,8 @@ JLabel label = new JLabel("What is the song?");
 
 	}
 
-//	void drawMenuState(Graphics g) {
-//	
-//		System.out.println("menu");
-//		g.setColor(pink);
-//		g.fillRect(0, 0, 600, 800);
-//		g.setColor(blue);
-//		g.setFont(titleFont);
-//		g.drawString("Music Guessing Game", 34, 200);
-//		g.setFont(instFont);
-//		g.drawString("Press ENTER to start", 105, 300);
-//		g.drawString("Press SPACE for instructions", 60, 400);
-//	}
-
-	void drawGameState() {
-		System.out.println("game");
-		
-		
-
-	}
 
 
-	void drawEndState(Graphics g) {
-		g.setColor(black);
-	}
 
 	public void paintComponent(Graphics g) {
 
