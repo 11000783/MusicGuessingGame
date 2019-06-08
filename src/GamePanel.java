@@ -16,11 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-import snoose.EndScreen;
-import snoose.GameScreen;
-import snoose.MenuScreen;
-
-public class GamePanel extends JFrame implements MouseListener, KeyListener, ActionListener {
+public class GamePanel extends JPanel implements MouseListener, KeyListener, ActionListener {
 	Font titleFont;
 	Font instFont;
 	final int MENU_STATE = 0;
@@ -31,28 +27,19 @@ public class GamePanel extends JFrame implements MouseListener, KeyListener, Act
 	Color blue = new Color(051, 136, 255);
 	Color purple = new Color(102, 034, 136);
 	Color black = new Color(0, 0, 0);
-	int randombutton1;
-	int randombutton2;
-	int randombutton3;
-	int randombutton4;
+	
+	EndScreen end = new EndScreen();
+	GameScreen game = new GameScreen();
+	MenuScreen menu = new MenuScreen();
 	QuestionManager manager = new QuestionManager();
 	Question question = new Question(4);
 	String[] songs = manager.songs;
 	Question[] questions = manager.questions;
-JLabel label = new JLabel("What is the song?");
-	JButton button1 = new JButton(Integer.toString(randombutton1));
-	JButton button2 = new JButton(Integer.toString(randombutton2));
-	JButton button3 = new JButton(Integer.toString(randombutton3));
-	JButton button4 = new JButton(Integer.toString(randombutton4));
-	Random randomButton = new Random();
+
 
 	GamePanel() {
 		Timer time = new Timer(15000, this);
-		ArrayList<Integer> Answers = new ArrayList<Integer>();
-		Answers.add(question.wrongAns1);
-		Answers.add(question.wrongAns2);
-		Answers.add(question.wrongAns3);
-		Answers.add(question.rightAns);
+	
 
 		titleFont = new Font("Playfair Display", Font.PLAIN, 48);
 		instFont = new Font("Playfair Display", Font.PLAIN, 32);
@@ -60,33 +47,9 @@ JLabel label = new JLabel("What is the song?");
 		System.out.println("Panel");
 		
 
-		for (int i = 0; i < 4; i++) {
-			int randomButtons = randomButton.nextInt(Answers.size());
-			int answers = Answers.get(randomButtons);
-		}
-//	    private void startGame() {
-//	        frame = new JFrame( "Snoose" );
-//	        frame.setVisible( true );
-//	        frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
-//	        frame.addKeyListener( this );
-//	        
-//	        menu = new MenuScreen( frame );
-//	        game = new GameScreen( frame );
-//	        end  = new EndScreen( frame );
-//	        
-//	        menu.drawMenu();
-//	    }
-//		 randomButtons = randombutton1;
-//		 if (randomButtons != randombutton1) {
-//		 randombutton2 = randomButtons;
-//		 }
-//		 else if (randomButtons != randombutton1 && randombutton2 != randomButtons) {
-//		 randombutton3 = randomButtons;
-//		 }
-//		 else if (randomButtons != randombutton1 && randombutton2 != randomButtons &&
-//		 randombutton3 != randomButtons) {
-//		 randombutton4 = randomButtons;
-//		 }
+
+
+
 
 	}
 
@@ -97,15 +60,15 @@ JLabel label = new JLabel("What is the song?");
 
 		if (currentState == MENU_STATE) {
 
-			drawMenuState(g);
+			menu.drawMenuState(g);
 
 		} else if (currentState == GAME_STATE) {
 
-			drawGameState();
+			game.drawGameState(g);
 
 		} else if (currentState == END_STATE) {
 
-			drawEndState(g);
+			end.drawEndState(g);
 		}
 
 	}
