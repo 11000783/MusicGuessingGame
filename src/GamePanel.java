@@ -20,7 +20,7 @@ import snoose.EndScreen;
 import snoose.GameScreen;
 import snoose.MenuScreen;
 
-public class GamePanel extends JPanel implements MouseListener, KeyListener, ActionListener {
+public class GamePanel extends JFrame implements MouseListener, KeyListener, ActionListener {
 	Font titleFont;
 	Font instFont;
 	final int MENU_STATE = 0;
@@ -64,18 +64,18 @@ JLabel label = new JLabel("What is the song?");
 			int randomButtons = randomButton.nextInt(Answers.size());
 			int answers = Answers.get(randomButtons);
 		}
-	    private void startGame() {
-	        frame = new JFrame( "Snoose" );
-	        frame.setVisible( true );
-	        frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
-	        frame.addKeyListener( this );
-	        
-	        menu = new MenuScreen( frame );
-	        game = new GameScreen( frame );
-	        end  = new EndScreen( frame );
-	        
-	        menu.drawMenu();
-	    }
+//	    private void startGame() {
+//	        frame = new JFrame( "Snoose" );
+//	        frame.setVisible( true );
+//	        frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+//	        frame.addKeyListener( this );
+//	        
+//	        menu = new MenuScreen( frame );
+//	        game = new GameScreen( frame );
+//	        end  = new EndScreen( frame );
+//	        
+//	        menu.drawMenu();
+//	    }
 //		 randomButtons = randombutton1;
 //		 if (randomButtons != randombutton1) {
 //		 randombutton2 = randomButtons;
