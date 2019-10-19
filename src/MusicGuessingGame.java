@@ -25,12 +25,6 @@ public class MusicGuessingGame {
 		EndScreen endpanel = new EndScreen();
 		GameScreen gamepanel = new GameScreen();
 		MenuScreen menupanel = new MenuScreen();
-		frame.add(endpanel);
-		frame.add(gamepanel);
-		frame.add(menupanel);
-		frame.addKeyListener(endpanel);
-		frame.addKeyListener(gamepanel);
-		frame.addKeyListener(menupanel);
 		frame.setVisible(true);
 		frame.getContentPane().setPreferredSize(new Dimension(width, height));
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

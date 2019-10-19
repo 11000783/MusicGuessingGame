@@ -1,7 +1,14 @@
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 
-public class MenuScreen extends GamePanel{
-	
+public class MenuScreen {
+	Color pink = new Color(187, 051, 136);
+	Color blue = new Color(051, 136, 255);
+	Color purple = new Color(102, 034, 136);
+	Color black = new Color(0, 0, 0);
+	Font titleFont;
+	Font instFont;
 	void drawMenuState(Graphics g) {		
 		System.out.println("menu");
 		g.setColor(pink);

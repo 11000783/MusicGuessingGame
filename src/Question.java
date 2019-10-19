@@ -8,7 +8,7 @@ public class Question {
 	int wrongAns3;
 	int rightAns;
 
-	public Question(int rightAns) {
+	public Question(String question, int rightAns) {
 		int wrong = 0;
 		this.rightAns = rightAns;
 		while (wrong < 3) {

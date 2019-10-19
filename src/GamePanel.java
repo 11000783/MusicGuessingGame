@@ -27,14 +27,14 @@ public class GamePanel extends JPanel implements MouseListener, KeyListener, Act
 	Color blue = new Color(051, 136, 255);
 	Color purple = new Color(102, 034, 136);
 	Color black = new Color(0, 0, 0);
-	
+    
 	EndScreen end = new EndScreen();
 	GameScreen game = new GameScreen();
 	MenuScreen menu = new MenuScreen();
 	QuestionManager manager = new QuestionManager();
-	Question question = new Question(4);
 	String[] songs = manager.songs;
 	Question[] questions = manager.questions;
+	
 
 
 	GamePanel() {
@@ -122,16 +122,7 @@ public class GamePanel extends JPanel implements MouseListener, KeyListener, Act
 			}
 			else if (currentState == GAME_STATE) {
 				//setBackground(purple);
-				label.setFont(instFont);
-				add(label);
-				add(button1);
-				add(button2);
-				add(button3);
-				add(button4);
-				button1.addMouseListener(this);
-				button2.addMouseListener(this);
-				button3.addMouseListener(this);
-				button4.addMouseListener(this);
+			
 		
 			}
 			repaint();

@@ -1,6 +1,6 @@
 import java.awt.Graphics;
 
-public class EndScreen extends GamePanel{
+public class EndScreen {
 
 	
 
