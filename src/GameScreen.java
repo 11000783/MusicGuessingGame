@@ -11,7 +11,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class GameScreen implements MouseListener{
-	
+	Color pink = new Color(187, 051, 136);
+	Color blue = new Color(051, 136, 255);
+	Color purple = new Color(102, 034, 136);
+	Color black = new Color(0, 0, 0);
 	Font titleFont;
 	Font instFont;
 	GamePanel GP;

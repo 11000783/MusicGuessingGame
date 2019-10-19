@@ -23,7 +23,7 @@ public class MusicGuessingGame {
 
 	void setup() {
 		EndScreen endpanel = new EndScreen();
-		GameScreen gamepanel = new GameScreen();
+		GameScreen gamepanel = new GameScreen(null);
 		MenuScreen menupanel = new MenuScreen();
 		frame.setVisible(true);
 		frame.getContentPane().setPreferredSize(new Dimension(width, height));

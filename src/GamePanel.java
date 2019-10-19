@@ -29,7 +29,7 @@ public class GamePanel extends JPanel implements MouseListener, KeyListener, Act
 	Color black = new Color(0, 0, 0);
     
 	EndScreen end = new EndScreen();
-	GameScreen game = new GameScreen();
+	GameScreen game = new GameScreen(null);
 	MenuScreen menu = new MenuScreen();
 	QuestionManager manager = new QuestionManager();
 	String[] songs = manager.songs;
