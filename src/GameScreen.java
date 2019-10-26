@@ -21,34 +21,26 @@ public class GameScreen implements MouseListener{
 	int randombutton1;
 	int randombutton2;
 	int randombutton3;
-	int randombutton4;
 	JLabel label = new JLabel("What is the song?");
 	JButton button1;
 	JButton button2;
 	JButton button3;
-	JButton button4;
 	Random randomButton = new Random();
 	void drawGameState(Graphics g) {
 		
 	}
 GameScreen(GamePanel GP) {
-Question q = new Question(null, 2);
-	button1 = new JButton(Integer.toString(q.rightAns));
-	button2 = new JButton(Integer.toString(q.wrongAns1));
-	button3 = new JButton(Integer.toString(q.wrongAns3));
-	button4 = new JButton(Integer.toString(q.wrongAns2));
+Question q  = new Question(null, 2);
 	this.GP = GP;
 	label.setFont(instFont);
-	this.GP.add(label);
-	this.GP.add(button1);
-	this.GP.add(button2);
-	this.GP.add(button3);
-	this.GP.add(button4);
-	button1.addMouseListener(this);
-	button2.addMouseListener(this);
-	button3.addMouseListener(this);
-	button4.addMouseListener(this);
+	button1 = new JButton();
+	button2 = new JButton();
+	button3 = new JButton();
+	
 }
+//new method called playsong((input peramiter) String Song title(from hashmap)) and make a random method to
+//chose a random song
+//mouse listener when click Jbutton change score and button.setText to new random wrong answers and
 @Override
 public void mouseClicked(MouseEvent e) {
 	// TODO Auto-generated method stub
@@ -74,5 +66,16 @@ public void mouseExited(MouseEvent e) {
 	// TODO Auto-generated method stub
 	
 }
+void setUp() {
+	this.GP.removeAll();
+	this.GP.add(label);
+	this.GP.add(button1);
+	this.GP.add(button2);
+	this.GP.add(button3);
+	button1.addMouseListener(this);
+	button2.addMouseListener(this);
+	button3.addMouseListener(this);
 
+	
+}
 }

@@ -9,8 +9,7 @@ public class MenuScreen {
 	Color black = new Color(0, 0, 0);
 	Font titleFont;
 	Font instFont;
-	void drawMenuState(Graphics g) {		
-		System.out.println("menu");
+	void drawMenuState(Graphics g, GamePanel GP) {		
 		g.setColor(pink);
 		g.fillRect(0, 0, 600, 800);
 		g.setColor(black);

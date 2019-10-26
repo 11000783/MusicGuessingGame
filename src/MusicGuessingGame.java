@@ -3,10 +3,6 @@ import java.awt.Dimension;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-import snoose.EndScreen;
-import snoose.GameScreen;
-import snoose.MenuScreen;
-
 public class MusicGuessingGame {
 
 	public static void main(String[] args) {

@@ -29,17 +29,16 @@ public class GamePanel extends JPanel implements MouseListener, KeyListener, Act
 	Color black = new Color(0, 0, 0);
     
 	EndScreen end = new EndScreen();
-	GameScreen game = new GameScreen(null);
+	GameScreen game = new GameScreen(this);
 	MenuScreen menu = new MenuScreen();
 	QuestionManager manager = new QuestionManager();
-	String[] songs = manager.songs;
-	Question[] questions = manager.questions;
+//	String[] songs = manager.songs;
+//	Question[] questions = manager.questions;
 	
 
 
 	GamePanel() {
-		Timer time = new Timer(15000, this);
-	
+
 
 		titleFont = new Font("Playfair Display", Font.PLAIN, 48);
 		instFont = new Font("Playfair Display", Font.PLAIN, 32);
@@ -122,7 +121,7 @@ public class GamePanel extends JPanel implements MouseListener, KeyListener, Act
 			}
 			else if (currentState == GAME_STATE) {
 				//setBackground(purple);
-			
+			game.setUp();
 		
 			}
 			repaint();
