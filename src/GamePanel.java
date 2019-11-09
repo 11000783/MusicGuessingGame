@@ -19,21 +19,21 @@ import javax.swing.Timer;
 public class GamePanel extends JPanel implements MouseListener, KeyListener, ActionListener {
 	Font titleFont;
 	Font instFont;
-	final int MENU_STATE = 0;
-	final int GAME_STATE = 1;
-	final int END_STATE = 2;
-	int currentState = MENU_STATE;
+	final static int MENU_STATE = 0;
+	final static int GAME_STATE = 1;
+	final static int END_STATE = 2;
+	static int currentState = MENU_STATE;
 	Color pink = new Color(187, 051, 136);
 	Color blue = new Color(051, 136, 255);
 	Color purple = new Color(102, 034, 136);
 	Color black = new Color(0, 0, 0);
     
-	EndScreen end = new EndScreen();
+	EndScreen end = new EndScreen(this);
 	GameScreen game = new GameScreen(this);
-	MenuScreen menu = new MenuScreen();
+	MenuScreen menu = new MenuScreen(this);
 	QuestionManager manager = new QuestionManager();
-//	String[] songs = manager.songs;
-//	Question[] questions = manager.questions;
+	GamePanel gamepanel;
+
 	
 
 
@@ -51,7 +51,16 @@ public class GamePanel extends JPanel implements MouseListener, KeyListener, Act
 
 
 	}
+public static void SwitchState(int state) {
+	if (state > END_STATE) {
+		currentState = MENU_STATE;
+		
+	}
+	else {	
+		currentState = state;
 
+	}
+}
 
 
 
@@ -113,17 +122,7 @@ public class GamePanel extends JPanel implements MouseListener, KeyListener, Act
 		// TODO Auto-generated method stub
 		System.out.println("key");
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-
-			currentState++;
-			if (currentState > END_STATE) {
-				currentState = MENU_STATE;
-				
-			}
-			else if (currentState == GAME_STATE) {
-				//setBackground(purple);
-			game.setUp();
-		
-			}
+SwitchState(currentState + 1);
 			repaint();
 		}
 	}

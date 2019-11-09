@@ -1,4 +1,5 @@
 import java.awt.Dimension;
+import java.awt.event.KeyListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -12,19 +13,16 @@ public class MusicGuessingGame {
 	static final int width = 600;
 	static final int height = 600;
     JFrame frame = new JFrame( "Music Guessing Game" );
-	JButton button1 = new JButton();
-	JButton button2 = new JButton();
-	JButton button3 = new JButton();
-	JButton button4 = new JButton();
+	
 
 	void setup() {
-		EndScreen endpanel = new EndScreen();
-		GameScreen gamepanel = new GameScreen(null);
-		MenuScreen menupanel = new MenuScreen();
+		GamePanel setup = new GamePanel();
 		frame.setVisible(true);
 		frame.getContentPane().setPreferredSize(new Dimension(width, height));
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	frame.add(setup);
 		frame.pack();
+		frame.addKeyListener(setup);
 		
 	}
 

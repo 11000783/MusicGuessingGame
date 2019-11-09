@@ -26,16 +26,19 @@ public class GameScreen implements MouseListener{
 	JButton button2;
 	JButton button3;
 	Random randomButton = new Random();
+	 GamePanel gamescreen;
 	void drawGameState(Graphics g) {
 		
 	}
 GameScreen(GamePanel GP) {
-Question q  = new Question(null, 2);
+
+	Question q  = new Question(null, 2);
 	this.GP = GP;
 	label.setFont(instFont);
 	button1 = new JButton();
 	button2 = new JButton();
 	button3 = new JButton();
+	this.gamescreen = GP;
 	
 }
 //new method called playsong((input peramiter) String Song title(from hashmap)) and make a random method to

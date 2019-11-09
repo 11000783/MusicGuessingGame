@@ -6,10 +6,11 @@ public class EndScreen {
 	Color blue = new Color(051, 136, 255);
 	Color purple = new Color(102, 034, 136);
 	Color black = new Color(0, 0, 0);
-	
+	GamePanel endscreen;
 
+	public EndScreen(GamePanel g) {
+	endscreen = g;
+}
 	void drawEndState(Graphics g) {
-		g.setColor(black);
-		//change from graphic to JLables
 	}
 }
