@@ -19,12 +19,10 @@ public class MussicGuessingGame implements KeyListener {
         frame.setVisible( true );
         frame.addKeyListener( this );
         
-        screen1 = new Screen1( this );
+   
         screen2 = new Screen2( this );
-        screen3 = new Screen3( this );
-        screen4 = new Screen4( this );
         
-        changeScreen( screen1 );
+        changeScreen( screen2 );
     }
     
     public void changeScreen( Screen screen ) {
@@ -42,19 +40,11 @@ public class MussicGuessingGame implements KeyListener {
         int keyCode = arg0.getKeyCode();
         
         if( keyCode == KeyEvent.VK_ENTER ) {
-            if( currentScreen == screen1 ) {
+            if( currentScreen == screen2 ) {
                 changeScreen( screen2 );
                 System.out.println( currentScreen );
-            } else if( currentScreen == screen2 ) {
-                changeScreen( screen3 );
-                System.out.println( currentScreen );
-            } else if( currentScreen == screen3 ) {
-                changeScreen( screen4 );
-                System.out.println( currentScreen );
-            } else if( currentScreen == screen4 ) {
-                changeScreen( screen1 );
-                System.out.println( currentScreen );
             }
+            
         }
     }
 
