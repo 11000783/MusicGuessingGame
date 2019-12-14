@@ -9,9 +9,18 @@ import javax.swing.JApplet;
 import javazoom.jl.player.advanced.AdvancedPlayer;
 
 public class Audio {
+	// need to make it so when
+	// press restart, song restarts
+	// also play songs at random 
+	public static initSong() {
+		
+	}
+	
     public static final int PLAY_ENTIRE_SONG = 0;
     Song song = null;
     AudioClip songWav = null;
+    AudioClip birthday = null;
+    
     
     public Audio( String fileName ) {
         if( fileName.indexOf( ".wav" ) != -1 ) {
