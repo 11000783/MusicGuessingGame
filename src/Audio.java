@@ -20,6 +20,11 @@ public class Audio {
     Song song = null;
     AudioClip songWav = null;
     AudioClip birthday = null;
+    AudioClip sugarplum = null;
+    AudioClip bohemian = null;
+    AudioClip dontstopbelievin = null;
+    AudioClip flowers= null;
+    AudioClip likeit = null;
     
     
     public Audio( String fileName ) {
