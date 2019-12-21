@@ -12,19 +12,11 @@ public class Audio {
 	// need to make it so when
 	// press restart, song restarts
 	// also play songs at random 
-	public static initSong() {
-		
-	}
+
 	
     public static final int PLAY_ENTIRE_SONG = 0;
-    Song song = null;
-    AudioClip songWav = null;
-    AudioClip birthday = null;
-    AudioClip sugarplum = null;
-    AudioClip bohemian = null;
-    AudioClip dontstopbelievin = null;
-    AudioClip flowers= null;
-    AudioClip likeit = null;
+Song song = null;
+AudioClip songWav = null;
     
     
     public Audio( String fileName ) {
@@ -103,7 +95,7 @@ public class Audio {
         }
 
         public void setDuration(int seconds) {
-            this.duration = seconds * 100;
+            this.duration = seconds;
         }
 
         public void stop() {

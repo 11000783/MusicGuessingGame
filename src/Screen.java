@@ -1,4 +1,5 @@
 
+import java.applet.AudioClip;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
@@ -17,11 +18,20 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+
+
 @SuppressWarnings("serial")
 public class Screen extends JPanel {
     static final int WIDTH = 600;
     static final int HEIGHT = 800;
     
+     
+    Audio birthday = new Audio("happyB.mp3");
+    Audio sugarplum = new Audio("sugarPlum.mp3");
+    Audio bohemian = new Audio("bohemian.mp3");
+    Audio dontstopbelievin = new Audio("dontstopbelieven.mp3");
+    Audio flowers= new Audio("waltzFlowers.mp3");
+    Audio likeit = new Audio("likeit.mp3");
 
     
     JFrame frame;

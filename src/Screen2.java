@@ -184,7 +184,16 @@ public class Screen2 extends Screen implements ActionListener, MouseListener {
 
 			if (buttonPressed == button1) {
 				System.out.println("button 1 pressed");
+				
 				// song plays again
+				bohemian.play(Audio.PLAY_ENTIRE_SONG);
+				try {
+					Thread.sleep(3000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				bohemian.stop();
 			}
 		}
 	}
@@ -196,7 +205,7 @@ public class Screen2 extends Screen implements ActionListener, MouseListener {
 		if (objClicked == labelPlay) {
 			System.out.println("play song");
 			song.stop();
-			song.play(Audio.PLAY_ENTIRE_SONG);
+			song.play(3);
 		} else if (objClicked == labelStop) {
 			System.out.println("stop song");
 			song.stop();
