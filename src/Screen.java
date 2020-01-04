@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
@@ -33,15 +34,16 @@ public class Screen extends JPanel {
     Audio flowers= new Audio("waltzFlowers.mp3");
     Audio likeit = new Audio("likeit.mp3");
     Audio[]Songs = {      birthday, sugarplum, bohemian, dontstopbelievin, flowers, likeit};
-    String[] answer = { "Happy Birthday", "Dance of the Sugar Plum", "Bohemian Rhapsody", "Don't Stop Beliven", "Waltz of the Flowers", "Like it"};
+    String[] answers = { "Happy Birthday", "Dance of the Sugar Plum", "Bohemian Rhapsody", "Don't Stop Beliven", "Waltz of the Flowers", "Like it"};
     JFrame frame;
     GridBagConstraints c;
     Color backgroundColor;
     Audio audio;
     Visual visual;
-    
+    Random random = new Random(answers.length);
     public Screen( JFrame frame ) {
-        this.frame = frame;
+        
+    	this.frame = frame;
         
         visual = new Visual();
         c = new GridBagConstraints();

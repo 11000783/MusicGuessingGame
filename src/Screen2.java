@@ -26,26 +26,25 @@ public class Screen2 extends Screen implements ActionListener, MouseListener {
 	JLabel labelStop;
 	JLabel labelGuessSong;
 	JButton button1;
+	JButton button2;
 	JTextField answer;
 	JPanel a;
 	JPanel b;
 	JPanel c;
-
 	Timer timer;
 	long counter;
 	Audio song;
 	MussicGuessingGame game;
-
+	int rannum;
+	
 	public Screen2(MussicGuessingGame game) {
 		super(game.frame);
+		rannum = random.nextInt(answers.length);
 		this.game = game;
-
 		timer = new Timer(1000, this);
 		counter = 0;
 		song = new Audio("raven.mp3");
-
 		labelGuessSong = new JLabel("Guess the song");
-
 		labelPlay = visual.createLabelImage("play.jpg", 50, 50);
 		labelPlay.setPreferredSize(new Dimension(50, 50));
 		labelPlay.addMouseListener(this);
@@ -63,10 +62,12 @@ public class Screen2 extends Screen implements ActionListener, MouseListener {
 		labelTitleImage = visual.createLabelImage("Space.png", 400, 200);
 		button1 = new JButton("play again");
 		answer = new JTextField();
+		button2 = new JButton("sudmit");
 		// Don't allow button presses to shift focus off the keyListener in the frame
 		button1.setFocusable(false);
 		button1.addActionListener(this);
-
+		button2.setFocusable(false);
+		button2.addActionListener(this);
 	}
 
 	public void setup() {
@@ -99,7 +100,8 @@ public class Screen2 extends Screen implements ActionListener, MouseListener {
 
 		addTitle();
 		addImages();
-		addButtons();
+		addButton1();
+		addButton2();
 		addTextFeild();
 		game.frame.pack();
 		this.repaint();
@@ -120,7 +122,7 @@ public class Screen2 extends Screen implements ActionListener, MouseListener {
 
 	}
 
-	private void addButtons() {
+	private void addButton1() {
 		GridBagConstraints gc = new GridBagConstraints();
 
 		button1.setPreferredSize(new Dimension(200, 20));
@@ -128,6 +130,16 @@ public class Screen2 extends Screen implements ActionListener, MouseListener {
 		gc.anchor = GridBagConstraints.CENTER;
 		gc.fill = GridBagConstraints.HORIZONTAL;
 		b.add(button1, gc);
+
+	}
+	private void addButton2() {
+		GridBagConstraints gc = new GridBagConstraints();
+
+		button2.setPreferredSize(new Dimension(200, 20));
+
+		gc.anchor = GridBagConstraints.CENTER;
+		gc.fill = GridBagConstraints.HORIZONTAL;
+		c.add(button2, gc);
 
 	}
 
@@ -185,8 +197,9 @@ public class Screen2 extends Screen implements ActionListener, MouseListener {
 			if (buttonPressed == button1) {
 				System.out.println("button 1 pressed");
 				
+				
 				// song plays again
-				bohemian.play(Audio.PLAY_ENTIRE_SONG);
+				Songs[rannum].play(Audio.PLAY_ENTIRE_SONG);
 				try {
 					Thread.sleep(3000);
 				} catch (InterruptedException e) {
@@ -194,6 +207,13 @@ public class Screen2 extends Screen implements ActionListener, MouseListener {
 					e.printStackTrace();
 				}
 				bohemian.stop();
+			}
+			if (button2 == buttonPressed) {
+				String userresponse = answer.getText();
+				userresponse.equals(answers[rannum]);
+				//
+				 
+				
 			}
 		}
 	}
