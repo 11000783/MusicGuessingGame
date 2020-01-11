@@ -15,7 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.Timer;
-
+//edit audio files and same song doesn't repeat itself
 @SuppressWarnings("serial")
 public class Screen2 extends Screen implements ActionListener, MouseListener {
 	Font titleFont = new Font("Arial", Font.BOLD, 60);
