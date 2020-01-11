@@ -31,18 +31,23 @@ public class Screen2 extends Screen implements ActionListener, MouseListener {
 	JPanel a;
 	JPanel b;
 	JPanel c;
+	int score;
 	Timer timer;
 	long counter;
 	Audio song;
 	MussicGuessingGame game;
 	int rannum;
+	String rightwrong;
+	int question;
 	
 	public Screen2(MussicGuessingGame game) {
 		super(game.frame);
 		rannum = random.nextInt(answers.length);
 		this.game = game;
 		timer = new Timer(1000, this);
+		score = 0;
 		counter = 0;
+		question = 0;
 		song = new Audio("raven.mp3");
 		labelGuessSong = new JLabel("Guess the song");
 		labelPlay = visual.createLabelImage("play.jpg", 50, 50);
@@ -57,8 +62,8 @@ public class Screen2 extends Screen implements ActionListener, MouseListener {
 		labelScore = new JLabel();
 		labelTitle.setFont(new Font("Arial", Font.PLAIN, 20));
 		labelScore.setFont(new Font("Arial", Font.PLAIN, 10));
-		labelScore.setText("score");
-		labelTitle.setText("wrong or right ");
+		labelScore.setText("Score: "+score);
+		labelTitle.setText(rightwrong);
 		labelTitleImage = visual.createLabelImage("Space.png", 400, 200);
 		button1 = new JButton("play again");
 		answer = new JTextField();
@@ -189,7 +194,7 @@ public class Screen2 extends Screen implements ActionListener, MouseListener {
 	public void actionPerformed(ActionEvent arg0) {
 
 		if (arg0.getSource() == timer) {
-			labelTitle.setText("wrong or right ");
+			labelTitle.setText(rightwrong);
 			this.repaint();
 		} else {
 			JButton buttonPressed = (JButton) arg0.getSource();
@@ -206,16 +211,40 @@ public class Screen2 extends Screen implements ActionListener, MouseListener {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				bohemian.stop();
+				Songs[rannum].stop();
 			}
 			if (button2 == buttonPressed) {
 				String userresponse = answer.getText();
-				userresponse.equals(answers[rannum]);
-				//
-				 
+				if(userresponse.equals(answers[rannum])) {
+					score ++;
+					question++;
+					rightwrong = "right";
+				}
+				else {
+					rightwrong = "wrong";
+				question++;
+				}
+				 reset();
 				
 			}
+			if(question == 10) {
+				if(score == 10) {
+					rightwrong = "Good Job";
+				}
+				else {
+					rightwrong = "Bad Job"; 
+				}
+			}
 		}
+		
+	}
+
+	private void reset() {
+		// TODO Auto-generated method stub
+		rannum = random.nextInt(answers.length);
+		answer.setText("");
+		Songs[rannum].stop();
+		
 	}
 
 	@Override
