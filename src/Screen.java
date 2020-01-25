@@ -19,7 +19,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-//birthday sugarplum crop 33-39, 
 
 @SuppressWarnings("serial")
 public class Screen extends JPanel {
@@ -27,7 +26,10 @@ public class Screen extends JPanel {
     static final int HEIGHT = 800;
     
    
-
+Audio celine = new Audio("celine.wav");
+Audio dancewithsomebody = new Audio("dancewithsomebody.wav");
+Audio dancingqueen = new Audio("dancingqueen.wav");
+Audio kermit = new Audio("kermit.wav");
     Audio hbremix = new Audio("hbremix.wav");
     Audio sugarplum = new Audio("sugarPlum.wav");
     Audio bohemian = new Audio("bohemian.wav");
