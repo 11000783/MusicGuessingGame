@@ -15,7 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.Timer;
-//edit audio files and same song doesn't repeat itself
+//Make score and add songs to the main tittle 
 @SuppressWarnings("serial")
 public class Screen2 extends Screen implements ActionListener, MouseListener {
 	Font titleFont = new Font("Arial", Font.BOLD, 60);
@@ -67,7 +67,7 @@ public class Screen2 extends Screen implements ActionListener, MouseListener {
 		labelTitleImage = visual.createLabelImage("Space.png", 400, 200);
 		button1 = new JButton("play again");
 		answer = new JTextField();
-		button2 = new JButton("sudmit");
+		button2 = new JButton("submit");
 		// Don't allow button presses to shift focus off the keyListener in the frame
 		button1.setFocusable(false);
 		button1.addActionListener(this);
@@ -215,8 +215,9 @@ public class Screen2 extends Screen implements ActionListener, MouseListener {
 			}
 			if (button2 == buttonPressed) {
 				String userresponse = answer.getText();
-				if(userresponse.equals(answers[rannum])) {
-					score ++;
+				
+				if(userresponse.equalsIgnoreCase(answers[rannum])) {
+					score ++; 
 					question++;
 					rightwrong = "right";
 				}
