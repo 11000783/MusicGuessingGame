@@ -1,12 +1,3 @@
-/bohemian.mp3
-/dontstopbelievin.mp3
-/happyB.mp3
-/hbremix.aup
-/hbremix.mp3
-/hbremix_data/
-/likeit.mp3
-/sugarPlum.mp3
-/waltzFlowers.mp3
 /Audio$Song$1.class
 /Audio$Song.class
 /Audio.class
@@ -14,22 +5,16 @@
 /MussicGuessingGame.class
 /Question.class
 /QuestionManager.class
-/Screen.class
-/Screen2.class
-/Visual.class
-/hbremix.wav
-/Abba - Dancing Queen (Official Video).wav
-/Muppets - Kermit - Its not easy being green (original).mp3
-/Muppets - Kermit - Its not easy being green (original).wav
-/My Heart Will Go On (Love Theme from Titanic).wav
-/Whitney Houston - I Wanna Dance With Somebody.wav
 /bohemian.wav
+/celine.wav
+/dancewithsomebody.wav
+/dancingqueen.wav
 /dontstopbelievin.wav
+/hbremix.wav
+/kermit.wav
 /likeit.wav
 /sugarPlum.wav
 /waltzFlowers.wav
-/dancingqueen.wav
-/kermit.mp3
-/kermit.wav
-/celine.wav
-/dancewithsomebody.wav
+/Screen.class
+/Screen2.class
+/Visual.class

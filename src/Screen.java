@@ -9,6 +9,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -33,7 +34,7 @@ Audio kermit = new Audio("kermit.wav");
     Audio hbremix = new Audio("hbremix.wav");
     Audio sugarplum = new Audio("sugarPlum.wav");
     Audio bohemian = new Audio("bohemian.wav");
-    Audio dontstopbelievin = new Audio("dontstopbelieven.wav");
+    Audio dontstopbelievin = new Audio("dontstopbelievin.wav");
     Audio flowers= new Audio("waltzFlowers.wav");
     Audio likeit = new Audio("likeit.wav");
     Audio[]Songs = {      hbremix,  sugarplum, bohemian, dontstopbelievin, flowers, likeit};
@@ -43,7 +44,7 @@ Audio kermit = new Audio("kermit.wav");
     Color backgroundColor;
     Audio audio;
     Visual visual;
-    Random random = new Random(answers.length);
+    Random random = new Random(new Date().getTime());
     public Screen( JFrame frame ) {
         
     	this.frame = frame;
@@ -69,5 +70,6 @@ Audio kermit = new Audio("kermit.wav");
         this.removeAll();
         this.frame.getContentPane().remove( this );
         this.frame.requestFocus();
+        labelScore.setText("");
     }
 }

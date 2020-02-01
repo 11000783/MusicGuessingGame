@@ -54,7 +54,7 @@ AudioClip songWav = null;
         URL url = getClass().getResource(fileName);
         AudioClip audio = JApplet.newAudioClip(url);
         
-        audio.play();
+       
         
         return audio;
     }

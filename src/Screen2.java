@@ -243,6 +243,7 @@ public class Screen2 extends Screen implements ActionListener, MouseListener {
 		// TODO Auto-generated method stub
 		rannum = random.nextInt(answers.length);
 		answer.setText("");
+		labelScore.setText("");
 		Songs[rannum].stop();
 		
 	}
