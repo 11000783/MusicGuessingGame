@@ -2,6 +2,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
@@ -60,19 +61,22 @@ public class Screen2 extends Screen implements ActionListener, MouseListener {
 
 		labelTitle = new JLabel();
 		labelScore = new JLabel();
+	
 		labelTitle.setFont(new Font("Arial", Font.PLAIN, 20));
 		labelScore.setFont(new Font("Arial", Font.PLAIN, 10));
 		labelScore.setText("Score: "+score);
 		labelTitle.setText(rightwrong);
 		labelTitleImage = visual.createLabelImage("Space.png", 400, 200);
-		button1 = new JButton("play again");
+		button1 = new JButton("PLAY SONG");
 		answer = new JTextField();
-		button2 = new JButton("submit");
+		button2 = new JButton("Submit");
 		// Don't allow button presses to shift focus off the keyListener in the frame
 		button1.setFocusable(false);
 		button1.addActionListener(this);
 		button2.setFocusable(false);
 		button2.addActionListener(this);
+		
+		
 	}
 
 	public void setup() {
@@ -102,6 +106,7 @@ public class Screen2 extends Screen implements ActionListener, MouseListener {
 		this.add(a);
 		this.add(b);
 		this.add(c);
+		
 
 		addTitle();
 		addImages();
@@ -111,8 +116,17 @@ public class Screen2 extends Screen implements ActionListener, MouseListener {
 		game.frame.pack();
 		this.repaint();
 		timer.start();
+		
+		
 	}
+ public void paintComponent(Graphics g) {
+	g.setColor(Color.BLACK);
+	 g.setFont(new Font("Arial", Font.PLAIN, 100));
+	 g.drawString("Score: "+score, 50, 1000);
+	 
+	 
 
+ }
 	private void addTitle() {
 		GridBagConstraints gc = new GridBagConstraints();
 		gc.anchor = GridBagConstraints.CENTER;
@@ -205,13 +219,8 @@ public class Screen2 extends Screen implements ActionListener, MouseListener {
 				
 				// song plays again
 				Songs[rannum].play(Audio.PLAY_ENTIRE_SONG);
-				try {
-					Thread.sleep(3000);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				Songs[rannum].stop();
+	
+				
 			}
 			if (button2 == buttonPressed) {
 				String userresponse = answer.getText();
@@ -219,14 +228,14 @@ public class Screen2 extends Screen implements ActionListener, MouseListener {
 				if(userresponse.equalsIgnoreCase(answers[rannum])) {
 					score ++; 
 					question++;
-					rightwrong = "right";
+					rightwrong = "RIGHT";
 				}
 				else {
-					rightwrong = "wrong";
+					rightwrong = "WRONG";
 				question++;
 				}
 				 reset();
-				
+				repaint();
 			}
 			if(question == 10) {
 				if(score == 10) {

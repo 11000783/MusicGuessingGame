@@ -25,8 +25,8 @@ import javax.swing.JPanel;
 public class Screen extends JPanel {
     static final int WIDTH = 600;
     static final int HEIGHT = 800;
-    
-   
+    Screen2 labelScore;
+    Screen2 score;
 Audio celine = new Audio("celine.wav");
 Audio dancewithsomebody = new Audio("dancewithsomebody.wav");
 Audio dancingqueen = new Audio("dancingqueen.wav");
@@ -37,8 +37,8 @@ Audio kermit = new Audio("kermit.wav");
     Audio dontstopbelievin = new Audio("dontstopbelievin.wav");
     Audio flowers= new Audio("waltzFlowers.wav");
     Audio likeit = new Audio("likeit.wav");
-    Audio[]Songs = {      hbremix,  sugarplum, bohemian, dontstopbelievin, flowers, likeit};
-    String[] answers = { "Happy Birthday Remix",  "Dance of the Sugar Plum", "Bohemian Rhapsody", "Don't Stop Beliven", "Waltz of the Flowers", "Like it"};
+    Audio[]Songs = {    kermit, dancewithsomebody, dancingqueen, celine,  hbremix,  sugarplum, bohemian, dontstopbelievin, flowers, likeit};
+    String[] answers = {"It's Not Easy Being Green", "I Wanna Dance With Somebody", "Dancing Queen", "My Heart Will Go On", "Happy Birthday Remix",  "Dance of the Sugar Plum", "Bohemian Rhapsody", "Don't Stop Beliven", "Waltz of the Flowers", "Like it"};
     JFrame frame;
     GridBagConstraints c;
     Color backgroundColor;
@@ -70,6 +70,6 @@ Audio kermit = new Audio("kermit.wav");
         this.removeAll();
         this.frame.getContentPane().remove( this );
         this.frame.requestFocus();
-        labelScore.setText("");
+        this.frame.lableScore(score);
     }
 }

@@ -9,9 +9,6 @@ import javax.swing.JApplet;
 import javazoom.jl.player.advanced.AdvancedPlayer;
 
 public class Audio {
-	// need to make it so when
-	// press restart, song restarts
-	// also play songs at random 
 
 	
     public static final int PLAY_ENTIRE_SONG = 0;

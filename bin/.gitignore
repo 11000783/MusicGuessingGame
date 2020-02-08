@@ -1,10 +1,3 @@
-/Audio$Song$1.class
-/Audio$Song.class
-/Audio.class
-/MusicGuessingGameRunner.class
-/MussicGuessingGame.class
-/Question.class
-/QuestionManager.class
 /bohemian.wav
 /celine.wav
 /dancewithsomebody.wav
@@ -15,6 +8,13 @@
 /likeit.wav
 /sugarPlum.wav
 /waltzFlowers.wav
+/Audio$Song$1.class
+/Audio$Song.class
+/Audio.class
+/MusicGuessingGameRunner.class
+/MussicGuessingGame.class
+/Question.class
+/QuestionManager.class
 /Screen.class
 /Screen2.class
 /Visual.class
