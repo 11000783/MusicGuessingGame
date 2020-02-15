@@ -37,8 +37,13 @@ Audio kermit = new Audio("kermit.wav");
     Audio dontstopbelievin = new Audio("dontstopbelievin.wav");
     Audio flowers= new Audio("waltzFlowers.wav");
     Audio likeit = new Audio("likeit.wav");
-    Audio[]Songs = {    kermit, dancewithsomebody, dancingqueen, celine,  hbremix,  sugarplum, bohemian, dontstopbelievin, flowers, likeit};
-    String[] answers = {"It's Not Easy Being Green", "I Wanna Dance With Somebody", "Dancing Queen", "My Heart Will Go On", "Happy Birthday Remix",  "Dance of the Sugar Plum", "Bohemian Rhapsody", "Don't Stop Beliven", "Waltz of the Flowers", "Like it"};
+    Audio babyshark = new Audio("babyshark.wav");
+    Audio lavieenrose = new Audio("lavieenrose.wav");
+    Audio romanholiday = new Audio("Roman Holiday.wav");
+    Audio shoulder = new Audio("shoulder.wav");
+    Audio love = new Audio("love.wav");
+    Audio[]Songs = { love, shoulder, romanholiday, lavieenrose, babyshark, kermit, dancewithsomebody, dancingqueen, celine,  hbremix,  sugarplum, bohemian, dontstopbelievin, flowers, likeit};
+    String[] answers = { "L.O.V.E", "Put Your Head On My Shoulder", "Roman Holiday", "La Vie En Rose","Baby Shark", "It's Not Easy Being Green", "I Wanna Dance With Somebody", "Dancing Queen", "My Heart Will Go On", "Happy Birthday Remix",  "Dance of the Sugar Plum", "Bohemian Rhapsody", "Don't Stop Beliven", "Waltz of the Flowers", "Like it"};
     JFrame frame;
     GridBagConstraints c;
     Color backgroundColor;
@@ -70,6 +75,6 @@ Audio kermit = new Audio("kermit.wav");
         this.removeAll();
         this.frame.getContentPane().remove( this );
         this.frame.requestFocus();
-        this.frame.lableScore(score);
+       
     }
 }

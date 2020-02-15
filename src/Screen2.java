@@ -9,6 +9,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.Date;
+import java.util.Random;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -16,7 +18,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.Timer;
-//Make score and add songs to the main tittle 
+ 
 @SuppressWarnings("serial")
 public class Screen2 extends Screen implements ActionListener, MouseListener {
 	Font titleFont = new Font("Arial", Font.BOLD, 60);
@@ -83,7 +85,15 @@ public class Screen2 extends Screen implements ActionListener, MouseListener {
 		game.frame.setTitle("Music Guessing Game");
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-		a = new JPanel();
+		a = new JPanel() {
+			 public void paintComponent(Graphics g) {
+				super.paintComponent(g);
+				 g.setColor(Color.BLACK);
+					 g.setFont(new Font("Arial", Font.PLAIN, 30));
+					 g.drawString("Score: "+score, 30, 30);
+					g.drawString("Question: "+ question, 400, 30);
+				 }
+		};
 		b = new JPanel();
 		c = new JPanel();
 
@@ -122,7 +132,16 @@ public class Screen2 extends Screen implements ActionListener, MouseListener {
  public void paintComponent(Graphics g) {
 	g.setColor(Color.BLACK);
 	 g.setFont(new Font("Arial", Font.PLAIN, 100));
-	 g.drawString("Score: "+score, 50, 1000);
+	 g.drawString("Score: "+score, 30, 30);
+		g.drawString("Question: "+ question, 400, 30);
+		if(score == 5) {
+			 g.drawString("Good Job", 200, 500);
+			
+		}
+		else {
+			 g.drawString("Bad Job", 200, 500); 
+		}
+	
 	 
 	 
 
@@ -237,12 +256,19 @@ public class Screen2 extends Screen implements ActionListener, MouseListener {
 				 reset();
 				repaint();
 			}
-			if(question == 10) {
-				if(score == 10) {
+			if(question == 5) {
+				if(score == 5) {
 					rightwrong = "Good Job";
+					remove(a);
+					remove(b);
+					remove(c);
+					
 				}
 				else {
 					rightwrong = "Bad Job"; 
+					remove(a);
+					remove(b);
+					remove(c);
 				}
 			}
 		}
@@ -251,7 +277,7 @@ public class Screen2 extends Screen implements ActionListener, MouseListener {
 
 	private void reset() {
 		// TODO Auto-generated method stub
-		rannum = random.nextInt(answers.length);
+		rannum = new Random(new Date().getTime()).nextInt(answers.length);
 		answer.setText("");
 		labelScore.setText("");
 		Songs[rannum].stop();
