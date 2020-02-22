@@ -27,7 +27,6 @@ public class Screen extends JPanel {
     static final int HEIGHT = 800;
     Screen2 labelScore;
     Screen2 score;
-Audio celine = new Audio("celine.wav");
 Audio dancewithsomebody = new Audio("dancewithsomebody.wav");
 Audio dancingqueen = new Audio("dancingqueen.wav");
 Audio kermit = new Audio("kermit.wav");
@@ -43,8 +42,8 @@ Audio kermit = new Audio("kermit.wav");
     Audio shoulder = new Audio("shoulder.wav");
     Audio love = new Audio("love.wav");
     Audio yee = new Audio("Yee.mp3");
-    Audio[]Songs = { yee, love, shoulder, romanholiday, lavieenrose, babyshark, kermit, dancewithsomebody, dancingqueen, celine,  hbremix,  sugarplum, bohemian, dontstopbelievin, flowers, likeit};
-    String[] answers = { "Yee", "L.O.V.E", "Put Your Head On My Shoulder", "Roman Holiday", "La Vie En Rose","Baby Shark", "It's Not Easy Being Green", "I Wanna Dance With Somebody", "Dancing Queen", "My Heart Will Go On", "Happy Birthday Remix",  "Dance of the Sugar Plum", "Bohemian Rhapsody", "Don't Stop Beliven", "Waltz of the Flowers", "Like it"};
+    Audio[]Songs = { yee, love, shoulder, romanholiday, lavieenrose, babyshark, kermit, dancewithsomebody, dancingqueen,  hbremix,  sugarplum, bohemian, dontstopbelievin, flowers, likeit};
+    String[] answers = { "Yee", "L.O.V.E", "Put Your Head On My Shoulder", "Roman Holiday", "La Vie En Rose","Baby Shark", "It's Not Easy Being Green", "I Wanna Dance With Somebody", "Dancing Queen", "Happy Birthday Remix",  "Dance of the Sugar Plum", "Bohemian Rhapsody", "Don't Stop Beliven", "Waltz of the Flowers", "Like it"};
     JFrame frame;
     GridBagConstraints c;
     Color backgroundColor;
