@@ -18,11 +18,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.Timer;
- 
+
 @SuppressWarnings("serial")
 public class Screen2 extends Screen implements ActionListener, MouseListener {
 	Font titleFont = new Font("Arial", Font.BOLD, 60);
-	JLabel labelTitleImage;
+//	JLabel labelTitleImage;
 	JLabel labelTitle;
 	JLabel labelScore;
 	JLabel labelPlay;
@@ -42,9 +42,10 @@ public class Screen2 extends Screen implements ActionListener, MouseListener {
 	int rannum;
 	String rightwrong;
 	int question;
-	
+
 	public Screen2(MussicGuessingGame game) {
 		super(game.frame);
+		rightwrong = "Press the play song button for a song to play then write the answer in the text feild then press submit. If you get it right you get a point";
 		rannum = random.nextInt(answers.length);
 		this.game = game;
 		timer = new Timer(1000, this);
@@ -53,22 +54,22 @@ public class Screen2 extends Screen implements ActionListener, MouseListener {
 		question = 0;
 		song = new Audio("raven.mp3");
 		labelGuessSong = new JLabel("Guess the song");
-		labelPlay = visual.createLabelImage("play.jpg", 50, 50);
-		labelPlay.setPreferredSize(new Dimension(50, 50));
-		labelPlay.addMouseListener(this);
+		//labelPlay = visual.createLabelImage("play.jpg", 50, 50);
+		//labelPlay.setPreferredSize(new Dimension(50, 50));
+	//	labelPlay.addMouseListener(this);
 
-		labelStop = visual.createLabelImage("stop.jpg", 50, 50);
-		labelStop.setPreferredSize(new Dimension(50, 50));
-		labelStop.addMouseListener(this);
+		//labelStop = visual.createLabelImage("stop.jpg", 50, 50);
+		//labelStop.setPreferredSize(new Dimension(50, 50));
+		//labelStop.addMouseListener(this);
 
 		labelTitle = new JLabel();
 		labelScore = new JLabel();
-	
+
 		labelTitle.setFont(new Font("Arial", Font.PLAIN, 20));
 		labelScore.setFont(new Font("Arial", Font.PLAIN, 10));
-		labelScore.setText("Score: "+score);
+		labelScore.setText("Score: " + score);
 		labelTitle.setText(rightwrong);
-		labelTitleImage = visual.createLabelImage("Space.png", 400, 200);
+	//	labelTitleImage = visual.createLabelImage("Space.png", 400, 200);
 		button1 = new JButton("PLAY SONG");
 		answer = new JTextField();
 		button2 = new JButton("Submit");
@@ -77,8 +78,7 @@ public class Screen2 extends Screen implements ActionListener, MouseListener {
 		button1.addActionListener(this);
 		button2.setFocusable(false);
 		button2.addActionListener(this);
-		
-		
+
 	}
 
 	public void setup() {
@@ -86,13 +86,13 @@ public class Screen2 extends Screen implements ActionListener, MouseListener {
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
 		a = new JPanel() {
-			 public void paintComponent(Graphics g) {
+			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
-				 g.setColor(Color.BLACK);
-					 g.setFont(new Font("Arial", Font.PLAIN, 30));
-					 g.drawString("Score: "+score, 30, 30);
-					g.drawString("Question: "+ question, 400, 30);
-				 }
+				g.setColor(Color.BLACK);
+				g.setFont(new Font("Arial", Font.PLAIN, 30));
+				g.drawString("Score: " + score, 30, 30);
+				g.drawString("Question: " + question, 400, 30);
+			}
 		};
 		b = new JPanel();
 		c = new JPanel();
@@ -116,7 +116,6 @@ public class Screen2 extends Screen implements ActionListener, MouseListener {
 		this.add(a);
 		this.add(b);
 		this.add(c);
-		
 
 		addTitle();
 		addImages();
@@ -126,33 +125,33 @@ public class Screen2 extends Screen implements ActionListener, MouseListener {
 		game.frame.pack();
 		this.repaint();
 		timer.start();
-		
-		
-	}
- public void paintComponent(Graphics g) {
-	g.setColor(Color.BLACK);
-	 g.setFont(new Font("Arial", Font.PLAIN, 100));
-	 g.drawString("Score: "+score, 30, 30);
-		g.drawString("Question: "+ question, 400, 30);
-		if(score == 5) {
-			 g.drawString("Good Job", 200, 500);
-			
-		}
-		else {
-			 g.drawString("Bad Job", 200, 500); 
-		}
-	
-	 
-	 
 
- }
+	}
+
+	public void paintComponent(Graphics g) {
+		g.setColor(Color.BLACK);
+		g.setFont(new Font("Arial", Font.PLAIN, 100));
+		if (score == 5) {
+			g.setFont(new Font("Arial", Font.PLAIN, 30));
+			g.drawString("Good Job", 200, 300);
+			g.drawString("Score: " + score, 30, 30);
+			g.drawString("Question: " + question, 400, 30);
+		} else {
+			g.setFont(new Font("Arial", Font.PLAIN, 30));
+			g.drawString("Score: " + score, 30, 30);
+			g.drawString("Question: " + question, 400, 30);
+			g.drawString("Bad Job", 200, 300);
+		}
+
+	}
+
 	private void addTitle() {
 		GridBagConstraints gc = new GridBagConstraints();
 		gc.anchor = GridBagConstraints.CENTER;
 		gc.fill = GridBagConstraints.HORIZONTAL;
 		gc.weighty = 0;
 		gc.gridy = 1;
-		a.add(labelTitleImage, gc);
+		//a.add(labelTitleImage, gc);
 
 		gc.fill = GridBagConstraints.NONE;
 		gc.gridy = 2;
@@ -170,6 +169,7 @@ public class Screen2 extends Screen implements ActionListener, MouseListener {
 		b.add(button1, gc);
 
 	}
+
 	private void addButton2() {
 		GridBagConstraints gc = new GridBagConstraints();
 
@@ -183,7 +183,7 @@ public class Screen2 extends Screen implements ActionListener, MouseListener {
 
 	private void addTextFeild() {
 		GridBagConstraints gc = new GridBagConstraints();
-		
+
 		gc.anchor = GridBagConstraints.CENTER;
 		gc.fill = GridBagConstraints.HORIZONTAL;
 		answer.setPreferredSize(new Dimension(200, 20));
@@ -205,11 +205,11 @@ public class Screen2 extends Screen implements ActionListener, MouseListener {
 		gc.gridx = 0;
 		gc.gridy = 1;
 		gc.gridwidth = 1;
-		b.add(labelStop, gc);
+		//b.add(labelStop, gc);
 
 		gc.gridx = 1;
 		gc.gridy = 1;
-		b.add(labelPlay, gc);
+		//b.add(labelPlay, gc);
 	}
 
 	public void cleanUp() {
@@ -234,45 +234,41 @@ public class Screen2 extends Screen implements ActionListener, MouseListener {
 
 			if (buttonPressed == button1) {
 				System.out.println("button 1 pressed");
-				
-				
+
 				// song plays again
 				Songs[rannum].play(Audio.PLAY_ENTIRE_SONG);
-	
-				
+
 			}
 			if (button2 == buttonPressed) {
 				String userresponse = answer.getText();
-				
-				if(userresponse.equalsIgnoreCase(answers[rannum])) {
-					score ++; 
+
+				if (userresponse.equalsIgnoreCase(answers[rannum])) {
+					score++;
 					question++;
 					rightwrong = "RIGHT";
-				}
-				else {
+				} else {
 					rightwrong = "WRONG";
-				question++;
+					question++;
 				}
-				 reset();
+				reset();
 				repaint();
 			}
-			if(question == 5) {
-				if(score == 5) {
+			if (question == 5) {
+				if (score == 5) {
 					rightwrong = "Good Job";
 					remove(a);
 					remove(b);
 					remove(c);
-					
-				}
-				else {
-					rightwrong = "Bad Job"; 
+
+				} else {
+					rightwrong = "Bad Job";
 					remove(a);
 					remove(b);
 					remove(c);
 				}
 			}
 		}
-		
+
 	}
 
 	private void reset() {
@@ -281,7 +277,7 @@ public class Screen2 extends Screen implements ActionListener, MouseListener {
 		answer.setText("");
 		labelScore.setText("");
 		Songs[rannum].stop();
-		
+
 	}
 
 	@Override
